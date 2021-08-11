@@ -1,0 +1,17 @@
+<div class="wrapper-list-municipalities">
+    <h2>List of Finnish Municipalities</h2>
+    <ul class="list-municipalities">
+        <li *ngFor="let municipality of municipalities" class="items-in-list">
+            <a>{{municipality.id}}. <span class="name-of-municipality">{{municipality.name}}</span>,  aka {{municipality.nickname}}</a>
+            <p>Population: {{municipality.population}}</p>
+        </li>
+    </ul>
+</div>
+
+<div class="single-municipality">
+    <h2>{{municipality.name | uppercase }} Details</h2>
+    <label for="nickname">Nickname: </label>
+    <input id="nickname" [(ngModel)]="municipality.nickname" placeholder="nickname">
+    <p>ID: {{municipality.id}}</p>
+    <p>Population: {{municipality.population}}</p>
+</div>

@@ -1,0 +1,45 @@
+h2 {
+  font: 400 40px/1.5 Helvetica, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+ 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ 
+li {
+  font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
+  background: #faefd1;
+  padding: 15px;
+}
+ 
+li:last-child {
+  border: none;
+}
+.wrapper-list-municipalities {
+
+}
+
+.name-of-municipality {
+    color: black;
+    font-family: 'Trocchi', serif; 
+    font-size: 25px; 
+    font-weight: normal; 
+    line-height: 48px; margin: 0;
+}
+
+.items-in-list:hover {
+    background-color: #f0cf75;
+    transition: 1s;
+}
+
+.single-municipality {
+    margin-top: 40px;
+    padding: 20px;
+    border-bottom: 1px solid blanchedalmond;
+    border-top: 1px solid blanchedalmond;
+}
