@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Municipality } from '../municipality';
-import { MUNICIPALITIES } from '../mock-municipalities';
-
+import { MunicipalityService } from '../municipality.service';
 @Component({
   selector: 'app-municipalities',
   templateUrl: './municipalities.component.html',
@@ -9,7 +8,7 @@ import { MUNICIPALITIES } from '../mock-municipalities';
 })
 export class MunicipalitiesComponent implements OnInit {
 
-  municipalities = MUNICIPALITIES;
+  municipalities: Municipality[] = [];  
   selectedMunicipality?: Municipality;
   municipality: Municipality = {
 
@@ -19,11 +18,16 @@ export class MunicipalitiesComponent implements OnInit {
     population: 67774,
   }
 
-  constructor() { }
+  constructor(private municipalityService: MunicipalityService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getMunicipalities();
   }
 
+  getMunicipalities(): void {
+    this.municipalityService.getMunicipalities()
+    .subscribe(municipalities => this.municipalities = municipalities);
+  }
   onSelect(municipality: Municipality) {
     this.selectedMunicipality = municipality;
   }
