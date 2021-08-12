@@ -10,17 +10,22 @@ import { MUNICIPALITIES } from '../mock-municipalities';
 export class MunicipalitiesComponent implements OnInit {
 
   municipalities = MUNICIPALITIES;
-  municipality : Municipality = {
-    
+  selectedMunicipality?: Municipality;
+  municipality: Municipality = {
+
     id: 1,
-    name:'Hämeenlinna',
+    name: 'Hämeenlinna',
     nickname: 'Hämpton',
     population: 67774,
   }
 
   constructor() { }
-  
+
   ngOnInit(): void {
-  }  
+  }
+
+  onSelect(municipality: Municipality) {
+    this.selectedMunicipality = municipality;
+  }
 
 }

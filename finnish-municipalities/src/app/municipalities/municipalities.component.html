@@ -1,17 +1,22 @@
 <div class="wrapper-list-municipalities">
     <h2>List of Finnish Municipalities</h2>
     <ul class="list-municipalities">
-        <li *ngFor="let municipality of municipalities" class="items-in-list">
-            <a>{{municipality.id}}. <span class="name-of-municipality">{{municipality.name}}</span>,  aka {{municipality.nickname}}</a>
-            <p>Population: {{municipality.population}}</p>
+        <li *ngFor="let municipality of municipalities" 
+            [class.selected]="municipality == selectedMunicipality"
+            class="items-in-list" 
+            (click)="onSelect(municipality)">
+            <a><span class="id">{{municipality.id}}.</span> <span class="name-of-municipality">{{municipality.name}}</span> aka
+                {{municipality.nickname}}, population: {{municipality.population}}
+            </a>
         </li>
     </ul>
 </div>
 
-<div class="single-municipality">
-    <h2>{{municipality.name | uppercase }} Details</h2>
-    <label for="nickname">Nickname: </label>
-    <input id="nickname" [(ngModel)]="municipality.nickname" placeholder="nickname">
-    <p>ID: {{municipality.id}}</p>
-    <p>Population: {{municipality.population}}</p>
+<div *ngIf=selectedMunicipality class="single-municipality">
+    <h2>{{selectedMunicipality.name | uppercase }} Details</h2>
+    <div class="info-box">
+        <p>ID: {{selectedMunicipality.id}}, population: {{selectedMunicipality.population}}</p>
+        <label for="nickname">Nickname: </label>
+        <input id="nickname" [(ngModel)]="selectedMunicipality.nickname" placeholder="nickname">
+    </div>
 </div>
